@@ -1,23 +1,21 @@
-knapsackWeight = 11
+def knapSack(W, weight, value, n):
+    table = [[0 for x in range(W + 1)] for x in range(n + 1)]
+  
+    # Build table table[][] in bottom up manner
+    for i in range(n + 1):
+        for j in range(W + 1):
+            if i == 0 or j == 0:
+                table[i][j] = 0
+            elif weight[i-1] <= j:
+                table[i][j] = max(value[i-1] + table[i-1][j-weight[i-1]],  table[i-1][j])
+            else:
+                table[i][j] = table[i-1][j]
+    print(table)
+    return table[n][W]
+    
+value = [6,7,8,9,10]
+weight = [1,2,3,4,5]
+W = 5
+n = len(value)
 
-value = [1,6,18,22,28]
-weight = [1,2,5,6,7]
-numberOfObjects = len(value)
-
-table = []
-
-for i in range(len(value)+1):
-    row = []
-    for j in range(knapsackWeight+1):
-        row.append(0)        
-    table.append(row)
-
-for i in range(1,numberOfObjects):
-    for j in range(1,knapsackWeight):
-        if(weight[i]>j):
-            table[i][j] = table[i-1][j]
-        else:
-            table[i][j] =  max(table[i-1][j], value[i] + table[i-1][j-weight[i]])
-            
-for i in range(len(table)):
-    print(table[i])
+print(knapSack(W, weight, value, n))
