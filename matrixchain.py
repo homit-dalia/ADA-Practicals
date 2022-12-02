@@ -16,7 +16,7 @@ def MatChainMul(arr, n):
     
     return matrix[1][n-1]
 
-arr = [1, 2, 3, 4]
+arr = [30,35,15,5,10,20,25]
 size = len(arr)
 
-print("Minimum number of multiplications are " +str(MatChainMul(arr, size)))
+print("Minimum number of multiplications required are " +str(MatChainMul(arr, size)))
