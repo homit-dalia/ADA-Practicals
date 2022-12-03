@@ -17,11 +17,9 @@ for i in range(len(value)):
 
 valueDensityNumpy = numpy.array(valueDensity)
 
-#valueDensity.sort(reverse=True)sort_index = list(numpy.argsort(valueDensityNumpy)[::-1])
-
 sort_index = list(numpy.argsort(valueDensityNumpy)[::-1])
 
-print(sort_index)
+print("Sort Index = ", sort_index)
 print("Value Density = ", valueDensity)
 
 for i in range(len(value)):
